@@ -1,26 +1,112 @@
 * {
-    padding: 0;
-    border: 0;
-  }
-  
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(205, 216, 224);
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #ccc;
+}
+
+header p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+header .nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+header .nav a:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+body {
+  background-color: aliceblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+main a:hover {
+  color: #003875;
+  text-decoration: underline;
+}
+
+.container {
+  margin: 20px 1%;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container ul {
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+
+.container ul li {
+  margin-bottom: 10px;
+}
+
+.container ul li p {
+  margin: 5px 0;
+  padding: 0;
+}
+
+.container details {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #f2f7fc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container details:hover {
+  background-color: #e0efff;
+}
+
+.container summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
   header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  header p {
-    font-size: 1.5rem;
-    font-weight: bold;
+
+  header .nav {
+    margin-top: 10px;
   }
+
   header .nav a {
-    margin: 10px;
-    color: black;
-    text-decoration: none;
+    margin: 5px 0;
   }
-  header .nav a:hover {
-    color: #007bff;
+
+  .container {
+    padding: 15px;
   }
-  
-  body {
-    background-color: aliceblue;
-  }/*# sourceMappingURL=style.css.map */
+}

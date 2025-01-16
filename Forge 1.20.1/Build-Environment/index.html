@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/dracula.min.css" integrity="sha512-zKpFlhUX8c+WC6H/XTJavnEpWFt2zH9BU9vu0Hry5Y+SEgG21pRMFcecS7DgDXIegXBQ3uK9puwWPP3h6WSR9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>AzOwata's Modding</title>
+</head>
+
+<body>
+    <header>
+        <p>AzOwata's Modding</p>
+        <nav class="nav">
+            <a href="../../index.html">ホーム</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>環境構築</h1>
+            <p>Forge 1.20.1で、Mod制作のための環境構築のやり方を説明します。</p>
+        </div>
+
+        <div class="container">
+            <h2>1. IntelliJ IDEAをインストールする</h2>
+            <p>IntelliJ IDEAは、Java IDEの一つで、Mod制作に最適です。以下からダウンロードし、インストールしてください。</p>
+            <p>※Ultimate版ではなく、Community版をダウンロードしてください。下にスクロールするとCommunity版のダウンロードボタンが見つかります。</p>
+            <p><a href="https://www.jetbrains.com/ja-jp/idea/download/?section=windows">Windows版</a></p>
+            <br>
+            <p>ダウンロードしたインストーラを開き、セットアップを完了してください。</p>
+        </div>
+
+        <div class="container">
+            <h2>2. 必要なプラグインを導入する</h2>
+            <p>Mod制作をする際に、必要なプラグインを導入します。</p>
+            <p>IntelliJ IDEAのメイン画面に行き、Pluginsのタブに移動します。</p>
+            <p>そして、Minecraft Developmentというプラグインをインストールしてください。</p>
+            <p>インストールが完了次第、次のステップに進みます。</p>
+        </div>
+        
+        <div class="container">
+            <h2>3. プロジェクトを作成する</h2>
+            <p>Modのプロジェクトを作成します。</p>
+            <p>IntelliJ IDEAのメイン画面に行き、Projectsのタブに移動します。</p>
+            <p>New Project ボタンを押し、Minecraft タブをクリックします。</p>
+            <p>次にプロジェクトの情報を入力します。以下の説明を読んで入力してください。</p>
+            <details>
+                <summary>説明</summary>
+                <ul>
+                    <li>
+                        <p>Name: プロジェクト名を入力します。 例: <code>Test Mod</code></p>
+                    </li>
+                    <li>
+                        <p>Location: 全てのプロジェクトを入れるためのフォルダを選択、または入力します。 例: <code>C:\Projects\</code></p>
+                    </li>
+                    <li>
+                        <p>Groups: 作るプロジェクトの種類を選択します。Modを作る場合、Modを選択します。</p>
+                    </li>
+                    <li>
+                        <p>Templates: Modローダーなどを選択します。</p>
+                    </li>
+                    <li>
+                        <p>Minecraft Version: 作りたいModのMinecraftバージョンを選択します。</p>
+                    </li>
+                    <li>
+                        <p>Use Mixins: Mixin(通常では変更できないMinecraft本体のコードなどを改変するもの)を使用するかどうかをチェックします。</p>
+                    </li>
+                    <li>
+                        <p>Mod ID: ModのIDを入力します。a-z の小文字、 0-9 の数字、および _- の記号のみが使用可能です。Name欄を入力すると自動で生成されますが、スペースをアンダーバーで置き換えます。Mod IDにはあまりアンダーバーを使わない風潮がある（個人談）ので、消したほうが良いかもしれません。 例: <code>testmod</code></p>
+                    </li>
+                    <li>
+                        <p>Mod Name: Modの名称(アイテムをホバーしたときに表示される青文字などに使われる)を入力します。Name欄を入力すると自動で生成されます。 例: <code>Test Mod</code></p>
+                    </li>
+                    <li>
+                        <p>Main Class: Modのメインクラスを入力します。Name欄を入力すると自動で生成されますが、クラス名をスネークケースで生成してしまうため、キャメルケースに修正が必要です。 例: <code>net.azowata.testmod.TestMod</code></p>
+                    </li>
+                    <li>
+                        <p>Lisence: ライセンスを設定します。MITにしておきましょう。</p>
+                    </li>
+                    <details>
+                        <summary>Optional Settings</summary>
+                        <ul>
+                            <li>
+                                <p>Description: Modの説明を入力します。日本語は不可です。 例: <code>Test Mod is recommended for bald!</code></p>
+                            </li>
+                            <li>
+                                <p>Authors: 制作に携わっている人のニックネーム、またはチーム名を入力します。 例: <code>AzOwata</code></p>
+                            </li>
+                            <li>
+                                <p>Website: 自分自身、またはチームの所有するWebサイトのURLを入力します。 例: <code>https://github.com/AzOwata/TestMod</code></p>
+                            </li>
+                            <li>
+                                <p>Update URL:  例: <code></code></p>
+                            </li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Build System Properties</summary>
+                        <ul>
+                            <li>
+                                <p>Group ID: パッケージのURLを指定します。基本的に自分の所有するドメイン、または自分のニックネーム + .netの逆順が使われます。a-z の小文字、 0-9 の数字、および _- の記号のみが使用可能です。 例: <code>net.azowata</code></p>
+                            </li>
+                            <li>
+                                <p>Artifact ID: Name欄を入力すると自動で生成されます。 例: <code>test-mod</code></p>
+                            </li>
+                            <li>
+                                <p>Version: Modの最初のバージョンを指定します。 例: <code>1.0.0</code></p>
+                            </li>
+                        </ul>
+                    </details>
+                    <li>
+                        <p>JDK: 使用するJavaのバージョンを指定します。</p>
+                        <ul>
+                            <li>
+                                <p>Java 21: Minecraft 1.21~</p>
+                            </li>
+                            <li>
+                                <p>Java 17: Minecraft 1.17 ~ 1.20.6</p>
+                            </li>
+                            <li>
+                                <p>Java 8(1.8.0): Minecraft ~1.16.5</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+
+            <p>情報の入力が終わったら、Create ボタンを押してください。</p>
+            <p>プロジェクトが作成されるので、右下の進捗が完了するまで待ちます。</p>
+        </div>
+
+        <div class="container">
+            <h2>4. 不必要なものを削除する</h2>
+            <p>左側のプロジェクトツリーで、<code>src\main\java\net\[yourname]\[modid]\</code>を開き、中に入っている <code>Config</code> クラスを削除します。</p>
+            <p>ウィンドウが表示されますが、Delete Anyway をクリックします。</p>
+            <p>次に、Modのメインクラスを開き、中身を削ってfinal変数 <code>MODID</code> 、コンストラクタのみにしてください。</p>
+            <p>さらに、コンストラクタの中身も変数 <code>modEventBus</code> のみに削ります。</p>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/java.min.js" integrity="sha512-rMWXD+aHIaZ/NWPiZhq12VF16IeEUk0XFIsUJeOYl558IPN5a/Mf6i7k/d4iTF6BeaFR4bEbNPSH9kOh3dVEAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // ハイライトを実行
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
