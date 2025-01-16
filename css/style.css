@@ -66,7 +66,7 @@ main a:hover {
 }
 
 .container ul li {
-  margin-bottom: 10px;
+  margin: 10px auto;
 }
 
 .container ul li p {
@@ -76,7 +76,7 @@ main a:hover {
 
 .container details {
   padding: 10px 15px;
-  margin-bottom: 10px;
+  margin: 10px auto;
   background-color: #f2f7fc;
   border-radius: 5px;
   cursor: pointer;

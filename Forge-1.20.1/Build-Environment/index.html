@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/dracula.min.css" integrity="sha512-zKpFlhUX8c+WC6H/XTJavnEpWFt2zH9BU9vu0Hry5Y+SEgG21pRMFcecS7DgDXIegXBQ3uK9puwWPP3h6WSR9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>AzOwata's Modding</title>
+    <link rel="stylesheet" href="../../css/code.css">
+    <title>環境構築 | AzOwata's Modding</title>
 </head>
 
 <body>
@@ -125,7 +127,6 @@
                     </li>
                 </ul>
             </details>
-
             <p>情報の入力が終わったら、Create ボタンを押してください。</p>
             <p>プロジェクトが作成されるので、右下の進捗が完了するまで待ちます。</p>
         </div>
@@ -139,10 +140,11 @@
         </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/java.min.js" integrity="sha512-rMWXD+aHIaZ/NWPiZhq12VF16IeEUk0XFIsUJeOYl558IPN5a/Mf6i7k/d4iTF6BeaFR4bEbNPSH9kOh3dVEAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
     <script>
-        // ハイライトを実行
-        hljs.initHighlightingOnLoad();
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
     </script>
 </body>
 
