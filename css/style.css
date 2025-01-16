@@ -52,7 +52,7 @@ main a:hover {
 }
 
 .container {
-  margin: 20px 1%;
+  margin: 20px auto;
   padding: 20px;
   max-width: 1200px;
   background-color: #fff;
@@ -80,11 +80,6 @@ main a:hover {
   background-color: #f2f7fc;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.container details:hover {
-  background-color: #e0efff;
 }
 
 .container summary {

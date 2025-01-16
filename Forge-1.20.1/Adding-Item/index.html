@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/code.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
+    <title>AzOwata's Modding</title>
+</head>
+
+<body>
+    <header>
+        <p>AzOwata's Modding</p>
+        <nav class="nav">
+            <a href="../../index.html">ホーム</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>シンプルなアイテムを追加する</h1>
+            <p>Forge 1.20.1で、特に機能のない簡単なアイテムを追加する方法を説明します。</p>
+            <p>まだ環境構築が完了していない場合は、<a href="">こちら</a>で環境構築をしてください。</p>
+        </div>
+
+        <div class="container">
+            <h2>1. Forgeへの登録を行うためのクラスを作成する</h2>
+            <p>Forgeにアイテムの登録をするために、クラスファイルを <code>src/main/java/net/yourname/modid/</code> に追加します。</p>
+            <p>クラス名は <code>ItemDeferredRegister</code> とします。</p>
+            <br>
+            <p>私のModの場合は以下のようになります。</p>
+
+            <div class="code">
+                <div class="code__title">
+                    <span class="code__language">Java</span>
+                    <span class="code__filename">ItemDeferredRegister.java</span>
+                </div>
+                <pre><code class="java">
+package net.azowata.testmod;
+
+import net.azowata.testmod.TestMod;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+
+public class ItemDeferredRegister {
+
+    public static final DeferredRegister&lt;Item&gt; ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TestMod.MOD_ID);
+
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>2. メインクラスで読み込ませる</h2>
+            <p>Modのメインクラスから先ほど作成したクラスをForgeに読み込ませます。</p>
+            <p>コンストラクタに行を追加し、以下の記述を追加します。</p>
+            <pre><code>ItemDeferredRegister.ITEMS.register(modEventBus);</code></pre>
+            <br>
+            <p>私のModの場合は以下のようになります。</p>
+            <div class="code">
+                <div class="code__title">
+                    <span class="code__language">Java</span>
+                    <span class="code__filename">TestMod.java</span>
+                </div>
+                <pre><code class="java">
+package net.azowata.testmod;
+
+import net.azowata.testmod.register.ItemDeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod(TestMod.MODID)
+public class TestMod {
+
+    public static final String MODID = "testmod";
+
+    public TestMod() {
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ItemDeferredRegister.ITEMS.register(modEventBus);
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>3. アイテムを登録する</h2>
+            <p>Forgeでは、アイテムを登録するために、ForgeRegistries.ITEMSに登録オブジェクトを登録します。</p>
+            <p>アイテムを登録するには、ItemDeferredRegisterクラスに以下のように記述します。</p>
+            <br>
+            <p>16個までスタックできるアイテム</p>
+            <pre><code>RegistryObject&lt;Item&gt; EXAMPLE_ITEM = ITEMS.register("example_item", () -&gt; new Item(new Item.Properties().stackSize(16)));</code></pre>
+            <br>
+            <p>私のModの場合は以下のようになります。</p>
+            <div class="code">
+                <div class="code__title">
+                    <span class="code__language">Java</span>
+                    <span class="code__filename">ItemDeferredRegister.java</span>
+                </div>
+                <pre><code class="java">
+package net.azowata.testmod;
+
+import net.azowata.testmod.TestMod;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public class ItemDeferredRegister {
+
+    public static final DeferredRegister&lt;Item&gt; ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TestMod.MOD_ID);
+
+    public static final RegistryObject&lt;Item&gt; EXAMPLE_ITEM = ITEMS.register("example_item", () -&gt; new Item(new Item.Properties().stacksTo(16)));
+
+}
+                </code></pre>
+            </div>
+            <p>アイテムの登録名は <code>example_item</code> です。アイテムのプロパティは以下のものが使用可能です。</p>
+            <details>
+                <summary>Item.Properties</summary>
+                <ul>
+                    <li>
+                        <p><code>.stacksTo()</code> アイテムのスタック数を設定します。デフォルトは64です。</p>
+                    </li>
+                    <li>
+                        <p><code>.durability()</code> アイテムの耐久値を設定します。</p>
+                    </li>
+                    <li>
+                        <p><code>.defaultDurability()</code> アイテム作成時の耐久値を設定します。</p>
+                    </li>
+                    <li>
+                        <p><code>.fireResistance()</code> アイテムが火炎で消滅しなくなります。デフォルトはfalseです。</p>
+                    </li>
+                    <li>
+                        <p><code>.craftRemainder()</code> アイテムをレシピに使用したとき、クラフト時に何が残るかを設定します。</p>
+                    </li>
+                    <li>
+                        <p><code>.setNoRepair()</code> </p>
+                    </li>
+                    <li>
+                        <p><code>.food()</code> アイテムを食べ物にします。 -> <a href="">食べ物を追加する</a></p>
+                    </li>
+                    <li>
+                        <p><code>.rarity()</code> アイテムのレアリティを設定します。</p>
+                        <details>
+                            <summary>Rarityクラスの定数一覧</summary>
+                            <ul>
+                                <li><p><code>Rarity.COMMON</code> 白色</p></li>
+                                <li><p><code>Rarity.UNCOMMON</code> 黄色</p></li>
+                                <li><p><code>Rarity.RARE</code> 水色</p></li>
+                                <li><p><code>Rarity.EPIC</code> 紫色</p></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</body>
+
+</html>
