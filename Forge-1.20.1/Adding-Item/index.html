@@ -111,7 +111,7 @@ public class TestMod {
             <p>アイテムを登録するには、ItemDeferredRegisterクラスに以下のように記述します。</p>
             <br>
             <p>16個までスタックできるアイテム</p>
-            <pre><code>RegistryObject&lt;Item&gt; EXAMPLE_ITEM = ITEMS.register("example_item", () -&gt; new Item(new Item.Properties().stackSize(16)));</code></pre>
+            <pre><code>public static final RegistryObject&lt;Item&gt; EXAMPLE_ITEM = ITEMS.register("example_item", () -&gt; new Item(new Item.Properties().stackSize(16)));</code></pre>
             <br>
             <p>私のModの場合は以下のようになります。</p>
             <div class="code">
