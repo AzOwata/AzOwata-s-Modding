@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/code.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/dracula.min.css"
-        integrity="sha512-zKpFlhUX8c+WC6H/XTJavnEpWFt2zH9BU9vu0Hry5Y+SEgG21pRMFcecS7DgDXIegXBQ3uK9puwWPP3h6WSR9g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
     <title>AzOwata's Modding</title>
 </head>
 
@@ -39,7 +36,7 @@
                     <span class="code__language">Java</span>
                     <span class="code__filename">ItemDeferredRegister.java</span>
                 </div>
-                <pre><code class="language-java">
+                <pre><code class="java">
 package net.azowata.testmod;
 
 import net.azowata.testmod.TestMod;
@@ -61,7 +58,7 @@ public class ItemDeferredRegister {
             <h2>2. メインクラスで読み込ませる</h2>
             <p>Modのメインクラスから先ほど作成したクラスをForgeに読み込ませます。</p>
             <p>コンストラクタに行を追加し、以下の記述を追加します。</p>
-            <pre><code>ItemDeferredRegister.ITEMS.register(modEventBus)</code></pre>
+            <pre><code class="java">ItemDeferredRegister.ITEMS.register(modEventBus);</code></pre>
             <br>
             <p>私のModの場合は以下のようになります。</p>
             <div class="code">
@@ -69,16 +66,35 @@ public class ItemDeferredRegister {
                     <span class="code__language">Java</span>
                     <span class="code__filename">TestMod.java</span>
                 </div>
-                <pre><code>
+                <pre><code class="java">
+package net.azowata.testmod;
+
+import net.azowata.testmod.register.ItemDeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod(TestMod.MODID)
+public class TestMod {
+
+    public static final String MODID = "testmod";
+
+    public TestMod() {
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ItemDeferredRegister.ITEMS.register(modEventBus);
+    }
+}
                 </code></pre>
             </div>
-
+        </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/java.min.js" integrity="sha512-rMWXD+aHIaZ/NWPiZhq12VF16IeEUk0XFIsUJeOYl558IPN5a/Mf6i7k/d4iTF6BeaFR4bEbNPSH9kOh3dVEAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
     <script>
-        // ハイライトを実行
-        hljs.initHighlightingOnLoad();
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
     </script>
 </body>
 

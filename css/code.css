@@ -44,7 +44,7 @@ pre code {
     -o-tab-size: 4;
 }
 
-pre code.language-java {
+pre code.java {
     background: linear-gradient(180deg, #2b2b2b, #3c3c3c);
 }
 
