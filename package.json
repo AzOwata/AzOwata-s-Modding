@@ -1,0 +1,24 @@
+{
+  "name": "azowata-s-modding",
+  "version": "1.0.0",
+  "description": "A website of modding tutorial.",
+  "homepage": "https://github.com/AzOwata/AzOwata-s-Modding#readme",
+  "bugs": {
+    "url": "https://github.com/AzOwata/AzOwata-s-Modding/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzOwata/AzOwata-s-Modding.git"
+  },
+  "license": "ISC",
+  "author": "az_owata",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "marked": "^18.0.0"
+  },
+  "devDependencies": {}
+}

@@ -31,18 +31,27 @@
         </header>
         <main>
             <div class="container">
-                <h1>Welcome to AzOwata's Modding!</h1>
-                <p>このサイトはMinecraftのModdingについて学ぶためのものです。</p>
-                <br>
-                <p>現在作成中。</p>
-            </div>
+                <div class="article-header">
+                    <h1 id="article-title">Welcome to AzOwata's Modding!</h1>
+                    <p id="article-description">このサイトはMinecraftのModdingについて学ぶためのものです。
+                    <br>現在作成中。</p>
+                </div>
 
-            <div class="container">
-                <h2>バージョンのリスト</h2>
-                <ul>
-                    <li><a href="./Forge-1.20.1/index.html">Forge 1.20.1</a></li>
-                </ul>
+                <h2>記事を探す</h2>
+                <select id="modloader-select">
+                    <option value="forge">Forge</option>
+                    <option value="neoforge">NeoForge</option>
+                    <option value="fabric">Fabric</option>
+                    <option value="quilt">Quilt</option>
+                </select>
+                <select id="version-select">
+                    <option value="1.12.2">1.12.2</option>
+                    <option value="1.20.1">1.20.1</option>
+                </select>
+                <div id="article-list"></div>
             </div>
         </main>
+
+        <script type="module" src="./index.js"></script>
     </body>
 </html>
