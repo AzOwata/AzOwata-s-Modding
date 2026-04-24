@@ -89,7 +89,7 @@ public class ItemDeferredRegister {
 - `.fireResistance()` アイテムが火炎で消滅しなくなります。デフォルトはfalseです。
 - `.craftRemainder()` アイテムをレシピに使用したとき、クラフト時に何が残るかを設定します。
 - `.setNoRepair()`
-- `.food()` アイテムを食べ物にします。 -> 食べ物を追加する
+- `.food()` アイテムを食べ物にします。 -> [食べ物を追加する](./index.html?ml=forge&ver=1.20.1&id=adding_a_food)
 - `.rarity()` アイテムのレアリティを設定します。
 
 <details><summary>Rarityクラスの定数一覧</summary>

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const jsonResponse = await fetch('../articles.json');
+        const jsonResponse = await fetch('./articles.json');
         const articles = await jsonResponse.json();
 
         const modloaderSelect = document.getElementById('modloader-select');

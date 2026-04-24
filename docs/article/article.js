@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(`ML: ${paramatorML}, Ver: ${paramatorVer}, Article: ${paramatorId}`);
 
     try {
-        const jsonResponse = await fetch('../../articles.json');
+        const jsonResponse = await fetch('../articles.json');
         const articles = await jsonResponse.json();
         
         const jsonML = articles[paramatorML];
@@ -29,15 +29,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (paramatorML && !paramatorVer && !paramatorId) {
             title = jsonML.title;
             description = jsonML.description;
-            mdResponse = await fetch(`../../articles/${paramatorML}.md`);
+            mdResponse = await fetch(`../articles/${paramatorML}.md`);
         } else if (paramatorML && paramatorVer && !paramatorId) {
             title = jsonVer.title;
             description = jsonVer.description;
-            mdResponse = await fetch(`../../articles/${paramatorML}/${paramatorVer}.md`);
+            mdResponse = await fetch(`../articles/${paramatorML}/${paramatorVer}.md`);
         } else {
             title = jsonId.title;
             description = jsonId.description;
-            mdResponse = await fetch(`../../articles/${paramatorML}/${paramatorVer}/${paramatorId}.md`);
+            mdResponse = await fetch(`../articles/${paramatorML}/${paramatorVer}/${paramatorId}.md`);
         }
         const mdText = await mdResponse.text();
 
