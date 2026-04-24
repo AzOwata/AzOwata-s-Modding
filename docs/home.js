@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const basePath = window.location.pathname.match(/^\/[^/]+/)?.[0] || '/';
+
     try {
-        const jsonResponse = await fetch('./articles.json');
+        const jsonResponse = await fetch(`${basePath}/articles.json`);
         const articles = await jsonResponse.json();
 
         const modloaderSelect = document.getElementById('modloader-select');
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             articleListElement.innerHTML = `
                 <ul>
                     ${Object.entries(jsonVer).map(([id, article]) => `
-                        <li><a href="./article/index.html?ml=${selectedML}&ver=${selectedVer}&id=${id}">${article.title}</a></li>
+                        <li><a href="${basePath}/article/index.html?ml=${selectedML}&ver=${selectedVer}&id=${id}">${article.title}</a></li>
                     `).join('')}
                 </ul>
             `;
