@@ -59,6 +59,7 @@ Forgeでは、アイテムを登録するために、`DeferredRegister`にアイ
 16個までスタックできるアイテム
 ```
 public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().stackSize(16)));
+// マイクラ内ではtestmod:example_itemが追加されることになります
 ```
 
 私のModの場合は以下のようになります。
