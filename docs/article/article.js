@@ -69,6 +69,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         marked.setOptions({ breaks: true });
 
+        const pageTitleElement = document.getElementById('page-title');
+        pageTitleElement.textContent = `${title} | AzOwata's Modding`;
+
         const articleTitleElement = document.getElementById('article-title');
         articleTitleElement.textContent = title;
 

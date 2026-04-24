@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="(制作中)MinecraftのMod制作についての情報を提供します。" />
-        <meta http-equiv="content-language" content="ja" />
-    
-        <meta property="og:title" content="ホーム | AzOwata's Modding" />
-        <meta property="og:description" content="(制作中)MinecraftのMod制作についての情報を提供します。" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://azowata.github.io/AzOwata-s-Modding/index.html" />
-        <meta property="og:image" content="https://azowata.github.io/AzOwata-s-Modding/img/tatami-green.png" />
-        <meta property="og:site_name" content="AzOwata's Modding" />
-        <meta property="og:locale" content="ja_JP" />
 
-        <meta name="author" content="AzOwata" />
-        <meta name="copyright" content="Copyright (C) 2025 AzOwata" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="(制作中)MinecraftのMod制作についての情報を提供します。" />
+    <meta http-equiv="content-language" content="ja" />
 
-        <link rel="shortcut icon" href="./img/AzOwataPage.ico" />
+    <meta property="og:title" content="ホーム | AzOwata's Modding" />
+    <meta property="og:description" content="(制作中)MinecraftのMod制作についての情報を提供します。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://azowata.github.io/AzOwata-s-Modding/index.html" />
+    <meta property="og:image" content="https://azowata.github.io/AzOwata-s-Modding/assets/img/tatami-green.png" />
+    <meta property="og:site_name" content="AzOwata's Modding" />
+    <meta property="og:locale" content="ja_JP" />
 
-        <link rel="stylesheet" href="./css/style.css">
-        <title>ホーム | AzOwata's Modding</title>
-    </head>
-    <body>
-        <header>
-            <p>AzOwata's Modding</p>
-            <nav class="nav">
-                <a href="./index.html">ホーム</a>
-            </nav>
-        </header>
-        <main>
-            <div class="container">
-                <div class="article-header">
-                    <h1 id="article-title">Welcome to AzOwata's Modding!</h1>
-                    <p id="article-description">このサイトはMinecraftのModdingについて学ぶためのものです。
-                    <br>現在作成中。</p>
-                </div>
+    <meta name="author" content="AzOwata" />
+    <meta name="copyright" content="Copyright (C) 2025 AzOwata" />
 
-                <h2>記事を探す</h2>
-                <select id="modloader-select">
-                    <option value="forge">Forge</option>
-                    <option value="neoforge">NeoForge</option>
-                    <option value="fabric">Fabric</option>
-                    <option value="quilt">Quilt</option>
-                </select>
-                <select id="version-select">
-                    <option value="1.12.2">1.12.2</option>
-                    <option value="1.20.1">1.20.1</option>
-                </select>
-                <div id="article-list"></div>
+    <link rel="shortcut icon" href="./assets/img/AzOwataPage.ico" />
+
+    <link rel="stylesheet" href="./css/style.css">
+    <title>ホーム | AzOwata's Modding</title>
+</head>
+
+<body>
+    <header>
+        <p>AzOwata's Modding</p>
+        <nav class="nav">
+            <a href="./index.html">ホーム</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="article-header">
+                <h1 id="article-title">Welcome to AzOwata's Modding!</h1>
+                <p id="article-description">このサイトはMinecraftのModdingについて学ぶためのものです。
+                    <br>現在作成中。
+                </p>
             </div>
-        </main>
 
-        <script type="module" src="./home.js"></script>
-    </body>
+            <h2>記事を探す</h2>
+            <select id="modloader-select">
+                <option value="forge">Forge</option>
+                <option value="neoforge">NeoForge</option>
+                <option value="fabric">Fabric</option>
+                <option value="quilt">Quilt</option>
+            </select>
+            <select id="version-select">
+                <option value="1.12.2">1.12.2</option>
+                <option value="1.20.1">1.20.1</option>
+            </select>
+            <div id="article-list"></div>
+        </div>
+    </main>
+
+    <script type="module" src="./home.js"></script>
+</body>
+
 </html>
